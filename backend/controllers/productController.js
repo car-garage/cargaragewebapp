@@ -1,27 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import { uploadImageToCloudinary } from "../libraries/uploadFile.js";
-import multer from "multer";
-import path from "path";
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(req, "./Images");
-//   },
-//   filename: (req, file, cb) => {
-//     console.log(file);
-//     cb(null, Date.now() + path.extname(file.originalname));
-//   },
-// });
-// const isImage = (req, file, callback) => {
-//   if (file.mimetype.startsWith("image")) {
-//     callback(null, true);
-//   } else {
-//     callback(new Error("only images is allowd"));
-//   }
-// };
-// const upload = multer({ storage: storage, fileFilter: isImage }).single(
-//   "photo"
-// );
+
 const getProducts = asyncHandler(async (req, res) => {
   const pageSize = 6;
   const page = Number(req.query.pageNumber) || 1;
